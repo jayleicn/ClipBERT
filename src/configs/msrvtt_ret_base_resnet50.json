@@ -1,0 +1,50 @@
+{
+  "train_datasets": [
+    {
+      "name": "msrvtt",
+      "txt": "/txt/msrvtt_retrieval/train.jsonl",
+      "img": "/img/msrvtt"
+    }
+  ],
+  "val_datasets": [
+    {
+      "name": "msrvtt_retrieval",
+      "txt": "/txt/msrvtt_retrieval/val.jsonl",
+      "img": "/img/msrvtt"
+    }
+  ],
+  "img_pixel_mean": [123.675, 116.28, 103.53],
+  "img_pixel_std": [1.0, 1.0, 1.0],
+  "img_input_format": "BGR",
+  "model_config": "src/configs/base_model.json",
+  "detectron2_model_cfg": "src/configs/detectron2_configs/R-50-grid.yaml",
+  "e2e_weights_path": "/pretrain/clipbert_image_text_pretrained.pt",
+  "detectron2_weights_path": null,
+  "bert_weights_path": null,
+  "tokenizer_dir": "/pretrain/bert-base-uncased/",
+  "output_dir": "/storage/msrvtt_ret_default",
+  "max_txt_len": 20,
+  "max_img_size": 448,
+  "train_batch_size": 16,
+  "val_batch_size": 16,
+  "max_n_example_per_group": 1,
+  "gradient_accumulation_steps": 1,
+  "learning_rate": 5e-5,
+  "decay": "linear",
+  "num_train_epochs": 40,
+  "min_valid_steps": 100,
+  "num_valid": 200,
+  "optim": "adamw",
+  "betas": [0.9, 0.98],
+  "dropout": 0.1,
+  "weight_decay": 1e-3,
+  "grad_norm": 5.0,
+  "cnn_learning_rate": 5e-5,
+  "cnn_weight_decay": 1e-3,
+  "cnn_lr_decay": "linear",
+  "seed":42,
+  "fp16": 1,
+  "loss_type": "rank",
+  "margin": 0.2,
+  "itm_neg_size": 1
+}

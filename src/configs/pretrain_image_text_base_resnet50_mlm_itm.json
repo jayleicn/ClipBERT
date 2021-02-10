@@ -1,0 +1,64 @@
+{
+  "train_datasets": [
+    {
+      "name": "coco_cap",
+      "vis_format": "image",
+      "txt": "/txt/pretrain/coco_train_captions.jsonl",
+      "img": "/img/coco_train2014_val2014"
+    },
+    {
+      "name": "vg_cap",
+      "vis_format": "image",
+      "txt": "/txt/pretrain/vg_train_captions.jsonl",
+      "img": "/img/vg"
+    }
+  ],
+  "val_datasets": [
+    {
+      "name": "coco_cap",
+      "vis_format": "image",
+      "txt": "/txt/pretrain/coco_val_captions.jsonl",
+      "img": "/img/coco_train2014_val2014"
+    },
+    {
+      "name": "vg_cap",
+      "vis_format": "image",
+      "txt": "/txt/pretrain/vg_val_captions.jsonl",
+      "img": "/img/vg"
+    }
+  ],
+  "img_pixel_mean": [123.675, 116.28, 103.53],
+  "img_pixel_std": [1.0, 1.0, 1.0],
+  "img_input_format": "BGR",
+  "model_config": "src/configs/base_model.json",
+  "detectron2_model_cfg": "src/configs/detectron2_configs/R-50-grid.yaml",
+  "e2e_weights_path": null,
+  "detectron2_weights_path": "/pretrain/grid_feat_R-50.pth",
+  "bert_weights_path": "/pretrain/bert-base-uncased/pytorch_model.bin",
+  "tokenizer_dir": "/pretrain/bert-base-uncased/",
+  "output_dir": "/storage/pretrain_default/",
+  "max_txt_len": 30,
+  "max_img_size": 768,
+  "train_batch_size": 32,
+  "val_batch_size": 32,
+  "max_n_example_per_group": 2,
+  "gradient_accumulation_steps": 2,
+  "num_train_epochs": 40,
+  "min_valid_steps": 100,
+  "num_valid": 200,
+  "learning_rate": 5e-5,
+  "decay": "linear",
+  "optim": "adamw",
+  "betas": [0.9, 0.98],
+  "dropout": 0.1,
+  "weight_decay": 1e-3,
+  "grad_norm": 5.0,
+  "cnn_learning_rate": 5e-5,
+  "cnn_weight_decay": 1e-3,
+  "cnn_lr_decay": "linear",
+  "pixel_random_sampling_size": 100,
+  "seed":42,
+  "fp16": 1,
+  "use_itm": 1,
+  "use_mlm": 1
+}

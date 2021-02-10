@@ -1,0 +1,17 @@
+ipdb
+joblib
+cytoolz
+lz4==2.1.9
+lmdb==0.97
+msgpack-numpy
+msgpack
+toolz
+transformers==2.11.0
+tensorboard
+ffmpeg-python
+tqdm
+easydict
+pycocotools>=2.0.1
+opencv-python
+tensorboardX==2.0
+av==8.0.2
