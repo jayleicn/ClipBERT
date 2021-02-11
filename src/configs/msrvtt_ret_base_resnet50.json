@@ -13,7 +13,7 @@
       "img": "/img/msrvtt"
     }
   ],
-  "max_txt_len": 100,
+  "max_txt_len": 20,
   "max_img_size": 448,
   "img_pixel_mean": [123.675, 116.28, 103.53],
   "img_pixel_std": [1.0, 1.0, 1.0],
