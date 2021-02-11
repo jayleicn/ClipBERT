@@ -35,7 +35,7 @@ We use mixed-precision training hence GPUs with Tensor Cores are recommended.
     ```bash
     PATH_TO_STORAGE=/path/to/your/data/
     mkdir -p $PATH_TO_STORAGE/txt_db  # annotations
-    mkdir -p $PATH_TO_STORAGE/img_db  # image and video 
+    mkdir -p $PATH_TO_STORAGE/vis_db  # image and video 
     mkdir -p $PATH_TO_STORAGE/finetune  # finetuning results
     mkdir -p $PATH_TO_STORAGE/pretrained  # pretrained models
     ```
