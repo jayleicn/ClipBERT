@@ -11,9 +11,8 @@ Official PyTorch code for ClipBERT, an efficient framework for
 end-to-end learning on image-text and video-text tasks. 
 It takes raw videos/images + text as inputs, and outputs task predictions.
 ClipBERT is designed based on 2D CNNs and transformers, and uses a sparse sampling strategy 
-to enable efficient end-to-end video-and-language learning.  
-In this repository, we support end-to-end pretraining and finetuning for the 
-following tasks:
+to enable efficient end-to-end video-and-language learning. In this repository, 
+we support end-to-end pretraining and finetuning for the following tasks:
 
 - Image-text pretraining on COCO and VG captions.
 - Text-to-video retrieval finetuning on MSRVTT, DiDeMo, and ActivityNet Captions.
