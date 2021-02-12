@@ -487,7 +487,7 @@ def start_training(cfg):
         elif pool_method == "max":
             logits = logits.max(0)[0]  # (B, 5)
         elif pool_method == "lse":
-            logits = logits.permute(1, 0, 2).contiguous() # (B, num_frm, 5), pooling will be done in CE
+            logits = logits.permute(1, 0, 2).contiguous()  # (B, num_frm, 5), pooling will be done in CE
         else:
             raise ValueError(f"Invalid value for pool_method, "
                              f"got {pool_method}, expect one of [`mean`, `max`, `lse`]")

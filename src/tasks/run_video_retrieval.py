@@ -67,8 +67,7 @@ def mk_video_ret_datalist(raw_datalist, cfg):
     return datalist
 
 
-def mk_video_ret_dataloader(anno_path, lmdb_dir, cfg, tokenizer,
-                       is_train=True):
+def mk_video_ret_dataloader(anno_path, lmdb_dir, cfg, tokenizer, is_train=True):
     """"""
     raw_datalist = load_jsonl(anno_path)
     datalist = mk_video_ret_datalist(raw_datalist, cfg)
@@ -408,7 +407,7 @@ def start_training(cfg):
         elif pool_method == "max":
             logits = logits.max(0)[0]  # (B, 5)
         elif pool_method == "lse":
-            logits = logits.permute(1, 0, 2).contiguous() # (B, num_frm, 5), pooling will be done in CE
+            logits = logits.permute(1, 0, 2).contiguous()  # (B, num_frm, 5), pooling will be done in CE
         else:
             raise ValueError(f"Invalid value for pool_method, "
                              f"got {pool_method}, expect one of [`mean`, `max`, `lse`]")

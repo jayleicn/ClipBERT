@@ -1,10 +1,18 @@
-# Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling
+# ClipBERT
 
-Official PyTorch code for ClipBERT, an efficient framework for end-to-end learning 
-on both image-text and video-text tasks. 
+[Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling](https://arxiv.org/abs/2102.06183)
+
+[Jie Lei](http://www.cs.unc.edu/~jielei/)\*, [Linjie Li](https://www.linkedin.com/in/linjie-li/)\*,
+[Luowei Zhou](https://luoweizhou.github.io/), [Zhe Gan](https://zhegan27.github.io/), 
+[Tamara L. Berg](http://tamaraberg.com/), [Mohit Bansal](http://www.cs.unc.edu/~mbansal/),
+[Jingjing Liu](https://www.linkedin.com/in/jingjing-liu-65703431/)
+
+Official PyTorch code for ClipBERT, an efficient framework for 
+end-to-end learning on image-text and video-text tasks. 
 It takes raw videos/images + text as inputs, and outputs task predictions.
-ClipBERT is designed based on 2D CNNs and transformers, and is pretrained on image-text corpus, 
-In this repository, we support pretraining and downstream finetuning for the 
+ClipBERT is designed based on 2D CNNs and transformers, and uses a sparse sampling strategy 
+to enable efficient end-to-end video-and-language learning.  
+In this repository, we support end-to-end pretraining and finetuning for the 
 following tasks:
 
 - Image-text pretraining on COCO and VG captions.
@@ -50,7 +58,6 @@ We use mixed-precision training hence GPUs with Tensor Cores are recommended.
     For your convenience, this script will also download `bert-base-uncased` and `grid-feat-vqa` 
     model weights, which are used as initialization for pretraining.  
 
-
 3. Launch the Docker container for running the experiments.
     ```bash
     # docker image should be automatically pulled
@@ -67,8 +74,7 @@ We use mixed-precision training hence GPUs with Tensor Cores are recommended.
 
 #### Text-to-Video Retrieval
 
-Tasks: MSRVTT retrieval, DiDeMo paragprah-to-video retrieval, 
-ActivityNet Captions paragraph-to-video retrieval, MSRVTT MC Test.
+Tasks: MSRVTT retrieval, DiDeMo and ActivityNet Captions paragprah-to-video retrieval, MSRVTT MC Test.
 
 1. Download data.
     ```bash
@@ -104,7 +110,7 @@ ActivityNet Captions paragraph-to-video retrieval, MSRVTT MC Test.
       --inference_img_db $IMG_DB --inference_batch_size 64 \
       --inference_n_clips $INFERENCE_N_CLIPS
     ```
-   `$STEP` is an integer, which tells the script to use the checkpoint 
+   `$STEP` is an integer, it tells the script to use the checkpoint 
    `$OUTPUT_DIR/ckpt/model_step_$STEP.pt` for inference.
    `$TXT_DB` and `$IMG_DB` are path to annotation file and video data. You can use
    `TXT_DB=/txt/downstream/msrvtt_retrieval/msrvtt_retrieval_val.jsonl` and 
@@ -130,6 +136,7 @@ ActivityNet Captions paragraph-to-video retrieval, MSRVTT MC Test.
    
 #### Video Question Answering
 
+Tasks: TGIF-QA action, transition, and frameQA tasks; MSRVTT-QA. 
 
 1. Download data.
     ```bash
@@ -218,13 +225,31 @@ ActivityNet Captions paragraph-to-video retrieval, MSRVTT MC Test.
         --output_dir $OUTPUT_DIR 
     ``` 
 
+## Data Preprocessing
+ClipBERT takes raw video and text as inputs, there is no need to do feature extraction. 
+However, to improve data loading speed, we use LMDB to store the raw image and video files. 
+You can use the following script to convert a list of videos with file extensions `mp4` and `avi` into LMDB:
+    
+```bash
+# outside the container
+python src/preprocessing/file2lmdb.py \
+    --data_root /path/to/videos \
+    --lmdb_save_dir /path/to/save/lmdb \
+    --ext avi mp4 \
+    --file_type video 
+```
+
+For images, use appropriate file extensions for `--ext` and `--file_type image`. 
+Text annotation files are reorganized into `jsonl` files, 
+see example preprocessed files downloaded by the scripts in [scripts/](scripts).   
+
 
 ## Citation
 
 If you find this code useful for your research, please consider citing:
 ```
 @article{li2020hero,
-  title={Less is More: CLIPBERT for Video-and-Language Learningvia Sparse Sampling},
+  title={Less is More: ClipBERT for Video-and-Language Learningvia Sparse Sampling},
   author={Lei, Jie and Li, Linjie and Zhou, Luowei and Gan, Zhe and Berg, Tamara L. and Bansal, Mohit and Liu, Jingjing},
   journal={arXiv},
   year={2021}
