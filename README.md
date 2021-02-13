@@ -247,7 +247,7 @@ see example preprocessed files downloaded by the scripts in [scripts/](scripts).
 
 If you find this code useful for your research, please consider citing:
 ```
-@article{li2020hero,
+@article{lei2021less,
   title={Less is More: ClipBERT for Video-and-Language Learningvia Sparse Sampling},
   author={Lei, Jie and Li, Linjie and Zhou, Luowei and Gan, Zhe and Berg, Tamara L. and Bansal, Mohit and Liu, Jingjing},
   journal={arXiv},
