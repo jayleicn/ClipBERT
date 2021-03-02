@@ -31,3 +31,11 @@ fi
 if [ ! -f $DOWNLOAD/pretrained/clipbert_image_text_pretrained.pt ] ; then
     wget -nc $BLOB/pretrained/clipbert_image_text_pretrained.pt -P $DOWNLOAD/pretrained/
 fi
+
+# bert base (needed for tokenization)
+if [ ! -d $DOWNLOAD/pretrained/bert-base-uncased ] ; then
+    wget -nc $BLOB/pretrained/bert-base-uncased.tar -P $DOWNLOAD/pretrained/
+    mkdir -p $DOWNLOAD/pretrained/bert-base-uncased
+    tar -xvf $DOWNLOAD/pretrained/bert-base-uncased.tar -C $DOWNLOAD/pretrained/bert-base-uncased
+    rm $DOWNLOAD/pretrained/bert-base-uncased.tar
+fi
