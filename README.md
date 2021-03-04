@@ -1,6 +1,6 @@
 # ClipBERT
 
-[Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling](https://arxiv.org/abs/2102.06183)
+[Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling](https://arxiv.org/abs/2102.06183), [CVPR 2021](http://cvpr2021.thecvf.com/), Oral.
 
 [Jie Lei](http://www.cs.unc.edu/~jielei/)\*, [Linjie Li](https://www.linkedin.com/in/linjie-li/)\*,
 [Luowei Zhou](https://luoweizhou.github.io/), [Zhe Gan](https://zhegan27.github.io/), 
@@ -8,7 +8,7 @@
 [Jingjing Liu](https://www.linkedin.com/in/jingjing-liu-65703431/)
 
 Official PyTorch code for ClipBERT, an efficient framework for 
-end-to-end learning on image-text and video-text tasks. 
+end-to-end learning for image-text and video-text tasks. 
 It takes raw videos/images + text as inputs, and outputs task predictions.
 ClipBERT is designed based on 2D CNNs and transformers, and uses a sparse sampling strategy 
 to enable efficient end-to-end video-and-language learning. In this repository, 
@@ -21,6 +21,8 @@ we support end-to-end pretraining and finetuning for the following tasks:
 
 It is also feasible and easy to add other image-text or video-text tasks for pretraining and finetuning. 
 
+
+> ClipBERT is accepted as an oral paper in CVPR 2021 with 3 strong accepts. :heart_eyes:
 
 ## Requirements 
 We provide a Docker image for easier reproduction. Please install the following:
@@ -247,19 +249,20 @@ see example preprocessed files downloaded by the scripts in [scripts/](scripts).
 
 If you find this code useful for your research, please consider citing:
 ```
-@article{lei2021less,
+@inproceedings{lei2021less,
   title={Less is More: ClipBERT for Video-and-Language Learningvia Sparse Sampling},
   author={Lei, Jie and Li, Linjie and Zhou, Luowei and Gan, Zhe and Berg, Tamara L. and Bansal, Mohit and Liu, Jingjing},
-  journal={arXiv},
+  booktitle={CVPR},
   year={2021}
 }
 ```
 
 ## Acknowledgement
-We thank [Yen-Chun Chen](https://scholar.google.com/citations?user=Gptgy4YAAAAJ&hl=en) and 
-[Ruotian Luo](https://ttic.uchicago.edu/~rluo/) for suggestions on the implementation. 
-We also thank other members and interns at 
-[Microsoft Multimodal AI](https://multimodalai.azurewebsites.net/people/members) for their helpful discussions.
+We thank [Yen-Chun Chen](https://scholar.google.com/citations?user=Gptgy4YAAAAJ&hl=en), 
+[Ruotian Luo](https://ttic.uchicago.edu/~rluo/), and other members and interns at 
+[Microsoft Multimodal AI](https://multimodalai.azurewebsites.net/people/members) 
+for their helpful discussions.
+We also thank the anonymous reviewers for their constructive feedback.
 
 This code used resources from [transformers](https://github.com/huggingface/transformers), 
 [UNITER](https://github.com/ChenRocks/UNITER), [HERO](https://github.com/linjieli222/HERO), 
