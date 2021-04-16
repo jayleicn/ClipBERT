@@ -62,7 +62,7 @@ We use mixed-precision training hence GPUs with Tensor Cores are recommended.
 3. Launch the Docker container for running the experiments.
     ```bash
     # docker image should be automatically pulled
-    source launch_container.sh $PATH_TO_STORAGE/txt_db $PATH_TO_STORAGE/img_db \
+    source launch_container.sh $PATH_TO_STORAGE/txt_db $PATH_TO_STORAGE/vis_db \
         $PATH_TO_STORAGE/finetune $PATH_TO_STORAGE/pretrained
     ```
     The launch script respects $CUDA_VISIBLE_DEVICES environment variable.
