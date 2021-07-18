@@ -22,7 +22,7 @@ we support end-to-end pretraining and finetuning for the following tasks:
 It is also feasible and easy to add other image-text or video-text tasks for pretraining and finetuning. 
 
 
-> ClipBERT is accepted as an oral paper in CVPR 2021 with 3 strong accepts. :heart_eyes:
+> ClipBERT got [Best Student Paper Honorable Mention](http://cvpr2021.thecvf.com/node/329) in CVPR 2021. :heart_eyes:
 
 ## Requirements 
 We provide a Docker image for easier reproduction. Please install the following:
