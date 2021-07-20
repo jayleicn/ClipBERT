@@ -1,6 +1,8 @@
 # ClipBERT
 
-[Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling](https://arxiv.org/abs/2102.06183), [CVPR 2021](http://cvpr2021.thecvf.com/), Oral.
+[Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling](https://arxiv.org/abs/2102.06183) 
+
+[CVPR 2021](http://cvpr2021.thecvf.com/), Oral, [Best Student Paper Honorable Mention](http://cvpr2021.thecvf.com/node/329).
 
 [Jie Lei](http://www.cs.unc.edu/~jielei/)\*, [Linjie Li](https://www.linkedin.com/in/linjie-li/)\*,
 [Luowei Zhou](https://luoweizhou.github.io/), [Zhe Gan](https://zhegan27.github.io/), 
@@ -21,8 +23,6 @@ we support end-to-end pretraining and finetuning for the following tasks:
 
 It is also feasible and easy to add other image-text or video-text tasks for pretraining and finetuning. 
 
-
-> ClipBERT got [Best Student Paper Honorable Mention](http://cvpr2021.thecvf.com/node/329) in CVPR 2021. :heart_eyes:
 
 ## Requirements 
 We provide a Docker image for easier reproduction. Please install the following:
