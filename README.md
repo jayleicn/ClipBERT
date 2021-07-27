@@ -222,7 +222,7 @@ Tasks: TGIF-QA action, transition, and frameQA tasks; MSRVTT-QA.
     ```bash
     #inside the container
     horovodrun -np 8 python src/pretrain/run_pretrain.py \
-        --config src/configs/pretrain_indomain_base_resnet50_mlm_itm.json \
+        --config src/configs/pretrain_image_text_base_resnet50_mlm_itm.json \
         --output_dir $OUTPUT_DIR 
     ``` 
 
