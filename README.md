@@ -24,6 +24,8 @@ we support end-to-end pretraining and finetuning for the following tasks:
 It is also feasible and easy to add other image-text or video-text tasks for pretraining and finetuning. 
 
 
+**[NEW]** If you are interested in ClipBERT, you might also be interested in our recent work, **Singularity** ([paper](https://arxiv.org/abs/2206.03428), [code](https://github.com/jayleicn/singularity)), with a single-frame trained model, it achieves state-of-the-art results a set of video-language tasks. 
+
 ## Requirements 
 We provide a Docker image for easier reproduction. Please install the following:
   - [nvidia driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#package-manager-installation) (418+), 
