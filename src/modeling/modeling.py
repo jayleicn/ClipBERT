@@ -216,8 +216,10 @@ class ClipBertBaseModel(BertPreTrainedModel):
             visual_inputs)  # (B, Lv, d)
         visual_attention_mask = attention_mask.new_ones(
             visual_embedding_output.shape[:2])  # (B, Lv)
+        label_per_vis = text_embedding_output.shape[0] // visual_embedding_output.shape[0]
+        visual_embedding_output = torch.repeat_interleave(visual_embedding_output, label_per_vis, dim=0)
         attention_mask = torch.cat(
-            [attention_mask, visual_attention_mask], dim=-1)  # (B, lt+Lv, d)
+            [attention_mask, visual_attention_mask], dim=-1)  # (B, lt+Lv)
         embedding_output = torch.cat(
             [text_embedding_output, visual_embedding_output],
             dim=1)  # (B, Lt+Lv, d)
