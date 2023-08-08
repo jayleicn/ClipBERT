@@ -155,9 +155,7 @@ def dissect_by_lengths(np_array, lengths, dim=0, assert_equal=True):
     np_array.shape[0] == sum(lengths), Output is a list of nd arrays, singlton dimention is kept"""
     if assert_equal:
         assert len(np_array) == sum(lengths)
-    length_indices = [0, ]
-    for i in range(len(lengths)):
-        length_indices.append(length_indices[i] + lengths[i])
+    length_indices = [0] + np.cumsum(lengths).tolist()
     if dim == 0:
         array_list = [np_array[length_indices[i]:length_indices[i+1]] for i in range(len(lengths))]
     elif dim == 1:
